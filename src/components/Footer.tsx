@@ -1,69 +1,43 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
 
-const Home = () => {
+const Footer = () => {
   return (
-    <div>
-      <div className="relative h-[400px] md:h-[600px]">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            alt="Farm landscape"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6">Welcome to Yusuf Farm</h1>
-            <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl">
-              Experience the perfect blend of nature, hospitality, and sustainable farming.
-              From farm-to-table dining to authentic farm experiences, we offer something for everyone.
+    <footer className="bg-gray-800 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Yusuf Farm</h3>
+            <p className="text-gray-300">
+              Bringing nature's best to your table, creating memorable experiences through sustainable farming.
             </p>
-            <Link
-              to="/offerings"
-              className="inline-flex items-center bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg hover:bg-green-700 transition-colors duration-200"
-            >
-              Explore Our Offerings
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
           </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <p className="text-gray-300">Email: info@yusuffarm.com</p>
+            <p className="text-gray-300">Phone: (555) 123-4567</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-300 hover:text-white">
+                <Facebook className="h-6 w-6" />
+              </a>
+              <a href="#" className="text-gray-300 hover:text-white">
+                <Instagram className="h-6 w-6" />
+              </a>
+              <a href="#" className="text-gray-300 hover:text-white">
+                <Twitter className="h-6 w-6" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 pt-8 border-t border-gray-700 text-center">
+          <p className="text-gray-300">&copy; {new Date().getFullYear()} Yusuf Farm. All rights reserved.</p>
         </div>
       </div>
-
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Why Choose Yusuf Farm?</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-4 md:p-6">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🌱</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Sustainable Farming</h3>
-              <p className="text-gray-600">We practice eco-friendly farming methods to protect our environment.</p>
-            </div>
-            <div className="text-center p-4 md:p-6">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🍽️</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Farm-to-Table</h3>
-              <p className="text-gray-600">Experience fresh, locally sourced ingredients in every dish.</p>
-            </div>
-            <div className="text-center p-4 md:p-6">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💚</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Family Experience</h3>
-              <p className="text-gray-600">Create lasting memories with activities for the whole family.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    </footer>
   );
 };
 
-export default Home;
+export default Footer;
