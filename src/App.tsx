@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Story from './pages/Story';
+import AnimalTrading from './pages/AnimalTrading';
 import Offerings from './pages/Offerings';
 import Contact from './pages/Contact';
 
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/story" element={<Story />} />
+            <Route path="/animal-trading" element={<AnimalTrading />} />
             <Route path="/offerings" element={<Offerings />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
