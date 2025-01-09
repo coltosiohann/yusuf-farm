@@ -1,4 +1,6 @@
 import React from "react";
+import story1 from "../images/story1.jpg"; // Importing the first image
+import story2 from "../images/story2.jpg"; // Importing the second image (add this file in your project structure)
 
 const Story = () => {
   return (
@@ -20,9 +22,11 @@ const Story = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left Text Content */}
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-[#B20202]">A Legacy of Excellence</h2>
+            <h2 className="text-3xl font-bold mb-6 text-[#B20202]">
+              A Legacy of Excellence
+            </h2>
             <p className="text-gray-700 mb-4">
-              Founded in 1985, Yusuf Farm began as a small family operation with a big dream: to create a sustainable farm
+              Founded in 2018, Yusuf Farm began as a small family operation with a big dream: to create a sustainable farm
               that would serve the community while preserving the environment for future generations.
             </p>
             <p className="text-gray-700 mb-4">
@@ -38,12 +42,12 @@ const Story = () => {
           {/* Right Image Content */}
           <div className="grid grid-cols-2 gap-6">
             <img
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+              src={story1}
               alt="Historic farm"
               className="rounded-lg shadow-lg"
             />
             <img
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+              src={story2} // Use the second imported image here
               alt="Modern farm"
               className="rounded-lg shadow-lg mt-8"
             />
@@ -52,7 +56,9 @@ const Story = () => {
 
         {/* Values Section */}
         <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-8 text-center text-[#B20202]">Our Values</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#B20202]">
+            Our Values
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Value Card 1 */}
             <div className="text-center p-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg">

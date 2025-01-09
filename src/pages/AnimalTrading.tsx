@@ -1,29 +1,35 @@
 import React from 'react';
 
+// Import images
+import bull  from '../images/bull.jpg';
+import sheep from '../images/sheep.jpg';
+import halal from '../images/halal.jpg';
+
+
 const AnimalTrading = () => {
   const animals = [
     {
-      title: "Premium Cattle",
-      description: "High-quality beef and dairy cattle breeds, including Angus, Hereford, and Holstein varieties.",
-      image: "https://images.unsplash.com/photo-1596733430284-f7437764b1a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      title: "Bull Trading",
+      description: "Trading premium bulls ensures access to top-tier genetics, enhancing herd quality and productivity for beef and dairy farming operations.",
+       image: bull,
     },
     {
-      title: "Heritage Sheep",
-      description: "Rare and traditional sheep breeds known for their superior wool quality and meat production.",
-      image: "https://images.unsplash.com/photo-1484557985045-edf25e08da73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      title: "Sheep Trading",
+      description: "Trading premium sheep provides superior genetics for exceptional wool quality, meat production, and sustainable breeding practices.",
+      image: sheep, // Use imported image
     },
     {
-      title: "Show Horses",
-      description: "Exceptional equine specimens, from racing thoroughbreds to show-quality Arabian horses.",
-      image: "https://images.unsplash.com/photo-1534073828943-f801091bb18c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-    }
+      title: "Halal Certificate",
+      description: "Halal refers to food and practices that comply with Islamic dietary laws, emphasizing cleanliness, ethical sourcing, and humane treatment.",
+      image: halal, // Use imported image
+    },
   ];
 
   return (
     <div className="bg-white">
       <div className="relative h-[400px]">
         <img
-          src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+          src="https://images.unsplash.com/photo-1554747706-2e474e1ae0c6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Animal Trading"
           className="w-full h-full object-cover"
         />
@@ -47,7 +53,7 @@ const AnimalTrading = () => {
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden border border-[#F05742]">
               <div className="h-64 overflow-hidden">
                 <img
-                  src={animal.image}
+                  src={animal.image} // Use dynamic image from imported paths
                   alt={animal.title}
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                 />

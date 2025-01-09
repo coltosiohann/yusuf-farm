@@ -1,20 +1,24 @@
 import React from "react";
 
+// Import images
+import yusufkebap from "../images/yusufkebap.png";
+import farm from "../images/story1.jpg";
+
 const Offerings = () => {
   const offerings = [
     {
       title: "Farm-to-Table Restaurant",
       description:
         "Experience exquisite dining with ingredients sourced directly from our farm. Our seasonal menu showcases the best of local produce prepared by expert chefs.",
-      image:
-        "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      image: yusufkebap, // Imported image
+      url: "https://yusufkebapdoner.ro/", // Add URL for this offering
     },
     {
       title: "Sustainable Farm",
       description:
         "Visit our working farm where we grow organic vegetables, fruits, and raise free-range livestock. Learn about sustainable farming practices and enjoy fresh produce.",
-      image:
-        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      image: farm, // Imported image
+      url: "/contact", // Add URL for this offering
     },
     {
       title: "Farm Store & Market",
@@ -22,6 +26,7 @@ const Offerings = () => {
         "Shop for fresh produce, artisanal products, and local crafts in our farm store. Take home the best of Yusuf Farm's products and support local artisans.",
       image:
         "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      url: "https://example.com/farm-store", // Add URL for this offering
     },
   ];
 
@@ -30,7 +35,7 @@ const Offerings = () => {
       {/* Hero Section */}
       <div className="relative h-[400px]">
         <img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+          src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
           alt="Farm offerings"
           className="w-full h-full object-cover"
         />
@@ -52,7 +57,7 @@ const Offerings = () => {
               {/* Image Section */}
               <div className="w-full md:w-1/2">
                 <img
-                  src={offering.image}
+                  src={offering.image} // Use dynamic image from imported paths
                   alt={offering.title}
                   className="w-full h-[400px] object-cover rounded-lg shadow-lg"
                 />
@@ -64,9 +69,14 @@ const Offerings = () => {
                   {offering.title}
                 </h2>
                 <p className="text-gray-700 text-lg">{offering.description}</p>
-                <button className="mt-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200">
+                <a
+                  href={offering.url} // Use the URL property
+                  target="_blank" // Open link in a new tab
+                  rel="noopener noreferrer" // Security attributes for external links
+                  className="inline-block mt-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
+                >
                   Learn More
-                </button>
+                </a>
               </div>
             </div>
           ))}

@@ -14,26 +14,42 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <p className="text-gray-300">Email: info@yusuffarm.com</p>
-            <p className="text-gray-300">Phone: (555) 123-4567</p>
+            <p className="text-gray-300">
+              Email: 
+              <a 
+                href="mailto:info@yusuffarm.com" 
+                className="text-gray-300 underline hover:text-white"
+              >
+                info@yusuffarm.com
+              </a>
+            </p>
+            <p className="text-gray-300">
+              Phone: 
+              <a 
+                href="tel:+004073700000" 
+                className="text-gray-300 underline hover:text-white"
+              >
+                +004073700000
+              </a>
+            </p>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white">
+              <a href="https://www.facebook.com/people/Yusuf-Farm/100090386741176/" className="text-gray-300 hover:text-white">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-white">
+              <a href="https://www.instagram.com/yusuffarmromania/" className="text-gray-300 hover:text-white">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                <Twitter className="h-6 w-6" />
-              </a>
+              
             </div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p className="text-gray-300">&copy; {new Date().getFullYear()} Yusuf Farm. All rights reserved.</p>
+          <p className="text-gray-300">
+            &copy; {new Date().getFullYear()} Yusuf Farm. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
