@@ -55,7 +55,7 @@ const Contact = () => {
                 <MapPin className="h-6 w-6 text-[#F05742] mr-4" />
                 <div>
                   <h3 className="font-semibold">Address</h3>
-                  <p className="text-gray-600">123 Farm Road, Countryside, State 12345</p>
+                  <p className="text-gray-600">J8FV+P54, ROMANIA 117036</p>
                 </div>
               </div>
             </div>

@@ -26,16 +26,24 @@ const Story = () => {
               A Legacy of Excellence
             </h2>
             <p className="text-gray-700 mb-4">
-              Founded in 2018, Yusuf Farm began as a small family operation with a big dream: to create a sustainable farm
-              that would serve the community while preserving the environment for future generations.
+            Yusuf Farm, established in 2018, is not just a farm but a living testament to a legacy that spans hundreds of years. Nestled in the serene countryside, 
+            this remarkable sanctuary is built upon traditions of sustainable farming and ethical animal husbandry that have been passed down through generations. 
+            Though modern in its operations, Yusuf Farm retains the soul of a bygone era, where the bond between humans and nature was unbreakable, and the land was
+             cherished as a sacred trust.
             </p>
             <p className="text-gray-700 mb-4">
-              Over the years, we've grown from a modest farm into a diverse agricultural enterprise, but our core values
-              remain the same: commitment to quality, respect for nature, and dedication to our community.
+            At the heart of Yusuf Farm lies its thriving livestock trade, specializing in the rearing and trading of bulls, sheep, and other livestock. Each animal
+             is raised with the utmost care, enjoying expansive, verdant pastures, a balanced diet, and a life that honors their natural rhythms. This dedication to 
+             excellence ensures that every animal embodies the highest standards of health, quality, and ethical treatment.
+             But Yusuf Farm is more than just a business—it’s a celebration of heritage and a commitment to the future. Generations of farming wisdom have 
+             shaped its practices, blending time-honored methods with cutting-edge agricultural innovations. This harmonious balance not only nurtures the animals
+              but also preserves the health of the soil and the surrounding ecosystem, creating a sustainable model for generations to come.
             </p>
             <p className="text-gray-700">
-              Today, Yusuf Farm is proud to offer not just fresh produce and farm products, but also unique dining
-              experiences and educational opportunities for visitors of all ages.
+            Visitors to Yusuf Farm are often captivated by its tranquil beauty, where rolling hills meet open skies, and the rhythmic sounds of nature provide a 
+            soothing backdrop. It’s a place where you can witness the meticulous care given to every aspect of farming, from the planting of crops to the nurturing 
+            of livestock. This deep respect for the land and its creatures is palpable in every corner of the farm, inspiring all who visit to reconnect with nature
+             and appreciate its bounty.
             </p>
           </div>
 
