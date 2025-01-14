@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://coltosiohann.github.io/yusuf-farm/",
+  "homepage": ".",
   "scripts": {
     "start": "command to run the project",
     "dev": "vite",
