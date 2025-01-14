@@ -18,7 +18,7 @@ const Offerings = () => {
       description:
         "Visit our working farm where we grow organic vegetables, fruits, and raise free-range livestock. Learn about sustainable farming practices and enjoy fresh produce.",
       image: farm, // Imported image
-      url: "/contact", // Add URL for this offering
+      url: "./", // Add URL for this offering
     },
     {
       title: "Farm Store & Market",
@@ -26,7 +26,7 @@ const Offerings = () => {
         "Shop for fresh produce, artisanal products, and local crafts in our farm store. Take home the best of Yusuf Farm's products and support local artisans.",
       image:
         "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      url: "https://example.com/farm-store", // Add URL for this offering
+      url: "./", // Add URL for this offering
     },
   ];
 
