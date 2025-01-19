@@ -1,6 +1,6 @@
 import React from "react";
 import story1 from "../images/story1.jpg"; // Importing the first image
-import story2 from "../images/story2.jpg"; // Importing the second image
+import story2 from "../images/FERMA.jpg"; // Importing the second image
 import { motion } from "framer-motion";
 
 const Story = () => {

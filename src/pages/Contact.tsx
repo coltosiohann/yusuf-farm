@@ -57,10 +57,10 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold">Phone</h3>
                   <a
-                    href="tel:+40732800000"
+                    href="tel:+0799619999"
                     className="text-gray-600 underline hover:text-[#F05742] transition duration-200"
                   >
-                    +40732800000
+                    +0799619999
                   </a>
                 </div>
               </div>

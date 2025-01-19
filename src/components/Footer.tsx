@@ -17,10 +17,10 @@ const Footer = () => {
             <p className="text-gray-300">
               Email: 
               <a 
-                href="mailto:info@yusuffarm.com" 
+                href="mailto:yowsef@yusuf-farm.ro" 
                 className="text-gray-300 underline hover:text-white"
               >
-                info@yusuffarm.com
+                yowsef@yusuf-farm.ro
               </a>
             </p>
             <p className="text-gray-300">
