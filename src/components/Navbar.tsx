@@ -71,59 +71,43 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-end transition-all duration-300">
-            <div className="w-4/5 sm:w-3/5 bg-[#F05742] p-6 rounded-tl-3xl rounded-bl-3xl transform transition-transform duration-300 ease-in-out">
-              <div className="flex justify-between items-center">
-                <img
-                  src={logo}
-                  alt="Yusuf Farm Logo"
-                  className="h-10 w-10 object-contain"
-                />
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-white hover:text-[#F05742]"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-
-              <div className="mt-6 space-y-6">
-                <Link
-                  to="/"
-                  className="text-white text-2xl font-semibold transition-colors duration-200 hover:text-[#F05742]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/story"
-                  className="text-white text-2xl font-semibold transition-colors duration-200 hover:text-[#F05742]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Our Story
-                </Link>
-                <Link
-                  to="/animal-trading"
-                  className="text-white text-2xl font-semibold transition-colors duration-200 hover:text-[#F05742]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Animal Trading
-                </Link>
-                <Link
-                  to="/offerings"
-                  className="text-white text-2xl font-semibold transition-colors duration-200 hover:text-[#F05742]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  What We Offer
-                </Link>
-                <Link
-                  to="/contact"
-                  className="text-white text-2xl font-semibold transition-colors duration-200 hover:text-[#F05742]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </div>
+          <div className="md:hidden py-4 bg-[#F05742] shadow-md transition-all duration-300">
+            <div className="flex flex-col space-y-4">
+              <Link
+                to="/"
+                className="text-white transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/story"
+                className="text-white transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Our Story
+              </Link>
+              <Link
+                to="/animal-trading"
+                className="text-white transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Animal Trading
+              </Link>
+              <Link
+                to="/offerings"
+                className="text-white transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                What We Offer
+              </Link>
+              <Link
+                to="/contact"
+                className="text-white transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
             </div>
           </div>
         )}
