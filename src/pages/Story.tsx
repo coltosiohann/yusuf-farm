@@ -1,6 +1,6 @@
 import React from "react";
 import story1 from "../images/story1.jpg"; // Importing the first image
-import story2 from "../images/FERMA.jpg"; // Importing the second image
+import story2 from "../images/taur_story.jpg"; // Importing the second image
 import { motion } from "framer-motion";
 
 const Story = () => {
@@ -41,7 +41,7 @@ const Story = () => {
               A Legacy of Excellence
             </h2>
             <p className="text-gray-700 mb-4">
-              Yusuf Farm, established in 2018, is not just a farm but a living
+              Yusuf Farm, established in 1920, is not just a farm but a living
               testament to a legacy that spans hundreds of years. Nestled in the
               serene countryside, this remarkable sanctuary is built upon
               traditions of sustainable farming and ethical animal husbandry

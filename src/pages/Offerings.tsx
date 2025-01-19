@@ -1,6 +1,6 @@
 import React from "react";
 import yusufkebap from "../images/yusufkebap.png";
-import farm from "../images/story1.jpg";
+import farm from "../images/FERMA.jpg";
 import { motion } from "framer-motion";
 
 const Offerings = () => {
