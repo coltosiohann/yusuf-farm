@@ -1,6 +1,4 @@
 import React from "react";
-import story1 from "../images/story1.jpg"; // Importing the first image
-import story2 from "../images/taur_story.jpg"; // Importing the second image
 import { motion } from "framer-motion";
 
 const Story = () => {
@@ -69,12 +67,12 @@ const Story = () => {
             transition={{ duration: 1 }}
           >
             <img
-              src={story1}
+              src="/images/story1.jpg" // Image in the public folder
               alt="Historic farm"
               className="rounded-lg shadow-lg"
             />
             <img
-              src={story2}
+              src="/images/taur_story.jpg" // Image in the public folder
               alt="Modern farm"
               className="rounded-lg shadow-lg mt-8"
             />
