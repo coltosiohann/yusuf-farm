@@ -1,99 +1,137 @@
 import React from "react";
 import story1 from "../images/story1.jpg"; // Importing the first image
-import story2 from "../images/story2.jpg"; // Importing the second image (add this file in your project structure)
+import story2 from "../images/taur_story.jpg"; // Importing the second image
+import { motion } from "framer-motion";
 
 const Story = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-[400px]">
-        <img
+      <section className="relative h-[400px] overflow-hidden">
+        <motion.img
           src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
           alt="Farm landscape"
           className="w-full h-full object-cover"
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-5xl font-bold text-white">Our Story</h1>
+          <motion.h1
+            className="text-5xl font-bold text-white"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Our Story
+          </motion.h1>
         </div>
-      </div>
+      </section>
 
       {/* Content Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left Text Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
             <h2 className="text-3xl font-bold mb-6 text-[#B20202]">
               A Legacy of Excellence
             </h2>
             <p className="text-gray-700 mb-4">
-            Yusuf Farm, established in 2018, is not just a farm but a living testament to a legacy that spans hundreds of years. Nestled in the serene countryside, 
-            this remarkable sanctuary is built upon traditions of sustainable farming and ethical animal husbandry that have been passed down through generations. 
-            Though modern in its operations, Yusuf Farm retains the soul of a bygone era, where the bond between humans and nature was unbreakable, and the land was
-             cherished as a sacred trust.
+              Yusuf Farm, established in 1920, is not just a farm but a living
+              testament to a legacy that spans hundreds of years. Nestled in the
+              serene countryside, this remarkable sanctuary is built upon
+              traditions of sustainable farming and ethical animal husbandry
+              that have been passed down through generations.
             </p>
             <p className="text-gray-700 mb-4">
-            At the heart of Yusuf Farm lies its thriving livestock trade, specializing in the rearing and trading of bulls, sheep, and other livestock. Each animal
-             is raised with the utmost care, enjoying expansive, verdant pastures, a balanced diet, and a life that honors their natural rhythms. This dedication to 
-             excellence ensures that every animal embodies the highest standards of health, quality, and ethical treatment.
-             But Yusuf Farm is more than just a business—it’s a celebration of heritage and a commitment to the future. Generations of farming wisdom have 
-             shaped its practices, blending time-honored methods with cutting-edge agricultural innovations. This harmonious balance not only nurtures the animals
-              but also preserves the health of the soil and the surrounding ecosystem, creating a sustainable model for generations to come.
+              At the heart of Yusuf Farm lies its thriving livestock trade,
+              specializing in the rearing and trading of bulls, sheep, and other
+              livestock. Each animal is raised with the utmost care, enjoying
+              expansive, verdant pastures and a balanced diet.
             </p>
             <p className="text-gray-700">
-            Visitors to Yusuf Farm are often captivated by its tranquil beauty, where rolling hills meet open skies, and the rhythmic sounds of nature provide a 
-            soothing backdrop. It’s a place where you can witness the meticulous care given to every aspect of farming, from the planting of crops to the nurturing 
-            of livestock. This deep respect for the land and its creatures is palpable in every corner of the farm, inspiring all who visit to reconnect with nature
-             and appreciate its bounty.
+              Visitors to Yusuf Farm are often captivated by its tranquil
+              beauty, where rolling hills meet open skies. It’s a place where
+              you can witness the meticulous care given to every aspect of
+              farming, inspiring all who visit to reconnect with nature.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Image Content */}
-          <div className="grid grid-cols-2 gap-6">
+          <motion.div
+            className="grid grid-cols-2 gap-6"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
             <img
               src={story1}
               alt="Historic farm"
               className="rounded-lg shadow-lg"
             />
             <img
-              src={story2} // Use the second imported image here
+              src={story2}
               alt="Modern farm"
               className="rounded-lg shadow-lg mt-8"
             />
-          </div>
+          </motion.div>
         </div>
+      </section>
 
-        {/* Values Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-8 text-center text-[#B20202]">
+      {/* Values Section */}
+      <section className="py-20 bg-white">
+        <motion.div
+          className="max-w-7xl mx-auto px-6 lg:px-12 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <h2 className="text-4xl font-bold mb-12 text-[#B20202]">
             Our Values
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Value Card 1 */}
-            <div className="text-center p-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg">
+            <motion.div
+              className="text-center p-8 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              whileHover={{ y: -10 }}
+            >
               <h3 className="text-xl font-semibold mb-4">Sustainability</h3>
               <p>
-                We implement eco-friendly farming practices and renewable energy solutions to minimize our environmental impact.
+                We implement eco-friendly farming practices and renewable energy
+                solutions to minimize our environmental impact.
               </p>
-            </div>
+            </motion.div>
 
             {/* Value Card 2 */}
-            <div className="text-center p-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg">
+            <motion.div
+              className="text-center p-8 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              whileHover={{ y: -10 }}
+            >
               <h3 className="text-xl font-semibold mb-4">Community</h3>
               <p>
-                We believe in supporting local communities through employment, education, and sustainable food production.
+                We believe in supporting local communities through employment,
+                education, and sustainable food production.
               </p>
-            </div>
+            </motion.div>
 
             {/* Value Card 3 */}
-            <div className="text-center p-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg">
+            <motion.div
+              className="text-center p-8 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              whileHover={{ y: -10 }}
+            >
               <h3 className="text-xl font-semibold mb-4">Innovation</h3>
               <p>
-                We continuously explore new farming techniques and technologies to improve our operations and products.
+                We continuously explore new farming techniques and technologies
+                to improve our operations and products.
               </p>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </section>
     </div>
   );
 };
