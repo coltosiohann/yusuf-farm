@@ -61,6 +61,12 @@ const Navbar = () => {
               What We Offer
             </Link>
             <Link
+              to="/gallery"
+              className="text-black hover:text-[#F05742] transition-all duration-200 font-medium pb-1"
+            >
+              Gallery
+            </Link>
+            <Link
               to="/contact"
               className="text-black hover:text-[#F05742] transition-all duration-200 font-medium pb-1"
             >
@@ -100,6 +106,13 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 What We Offer
+              </Link>
+              <Link
+                to="/gallery"
+                className="text-white transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Gallery
               </Link>
               <Link
                 to="/contact"

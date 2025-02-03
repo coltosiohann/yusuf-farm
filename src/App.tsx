@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Story from './pages/Story';
 import AnimalTrading from './pages/AnimalTrading';
+import Gallery from './pages/Gallery';
 import Offerings from './pages/Offerings';
 import Contact from './pages/Contact';
 
@@ -19,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/story" element={<Story />} />
             <Route path="/animal-trading" element={<AnimalTrading />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/offerings" element={<Offerings />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" replace />} />
@@ -30,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
