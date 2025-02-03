@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for internal navigation
 import yusufkebap from "../images/yusufkebap.png";
 import farm from "../images/FERMA.jpg";
 import { motion } from "framer-motion";
@@ -10,14 +11,16 @@ const Offerings = () => {
       description:
         "Experience exquisite dining with ingredients sourced directly from our farm. Our seasonal menu showcases the best of local produce prepared by expert chefs.",
       image: yusufkebap,
-      url: "https://yusufkebapdoner.ro/",
+      url: "https://yusufkebapdoner.ro/", // External link (keeps <a> tag)
+      external: true,
     },
     {
       title: "Sustainable Farm",
       description:
         "Visit our working farm where we grow organic vegetables, fruits, and raise free-range livestock. Learn about sustainable farming practices and enjoy fresh produce.",
       image: farm,
-      url: "./animal-trading",
+      url: "/animal-trading", // Internal link (use <Link>)
+      external: false,
     },
     {
       title: "Farm Store & Market",
@@ -25,7 +28,8 @@ const Offerings = () => {
         "Shop for fresh produce, artisanal products, and local crafts in our farm store. Take home the best of Yusuf Farm's products and support local artisans.",
       image:
         "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      url: "./our-story",
+      url: "/story", // Internal link (use <Link>)
+      external: false,
     },
   ];
 
@@ -101,14 +105,25 @@ const Offerings = () => {
                   {offering.title}
                 </h2>
                 <p className="text-gray-700 text-lg">{offering.description}</p>
-                <a
-                  href={offering.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
-                >
-                  Learn More
-                </a>
+
+                {/* Conditional Rendering for External vs Internal Links */}
+                {offering.external ? (
+                  <a
+                    href={offering.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
+                  >
+                    Learn More
+                  </a>
+                ) : (
+                  <Link
+                    to={offering.url}
+                    className="inline-block mt-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
+                  >
+                    Learn More
+                  </Link>
+                )}
               </motion.div>
             </motion.div>
           ))}
