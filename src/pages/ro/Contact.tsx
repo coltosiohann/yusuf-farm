@@ -1,138 +1,204 @@
-import React from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { ArrowUpRight, Clock3, Mail, MapPin, Phone } from "lucide-react";
+import { FormEvent, useState } from "react";
 
-const Contact = () => {
+const ContactRo = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const subject = formData.name
+      ? `Mesaj de la ${formData.name}`
+      : "Mesaj pentru Yusuf Farm";
+    const body = [
+      `Nume: ${formData.name || "-"}`,
+      `Email: ${formData.email || "-"}`,
+      "",
+      formData.message || "Bună, aș dori să iau legătura cu Yusuf Farm.",
+    ].join("\n");
+
+    window.location.href = `mailto:yowsef@yusuf-farm.ro?${new URLSearchParams({
+      subject,
+      body,
+    }).toString()}`;
+  };
+
   return (
-    <div className="bg-gray-50">
-      {/* Secțiunea Hero */}
-      <section className="relative h-[400px] overflow-hidden">
-        <motion.img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          alt="Contactează-ne"
-          className="w-full h-full object-cover"
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <motion.h1
-            className="text-5xl font-bold text-white"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            Contact
-          </motion.h1>
-        </div>
-      </section>
-
-      {/* Secțiunea de Contact */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Informații Contact */}
+    <div className="pb-12 pt-6 md:pt-10">
+      <section className="page-hero">
+        <div className="page-hero-grid">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            className="page-hero-copy"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75 }}
           >
-            <h2 className="text-3xl font-bold mb-6 text-[#B20202]">
-              Ia legătura cu noi
-            </h2>
-            <p className="text-gray-700 mb-8">
-              Ne-ar face plăcere să auzim de la tine! Fie că ai întrebări despre serviciile noastre,
-              vrei să faci o rezervare sau ești interesat de organizarea unui eveniment, nu ezita să ne contactezi.
+            <span className="eyebrow">Contact Yusuf Farm</span>
+            <h1 className="section-title text-[var(--ink)] md:text-[clamp(3rem,6vw,5.2rem)]">
+              Hai să vorbim despre vizite, animale și rezervări.
+            </h1>
+            <p className="max-w-xl text-lg text-[var(--muted)] md:text-xl">
+              Scrie-ne dacă vrei să vizitezi ferma, să întrebi despre disponibilitatea
+              animalelor sau să afli mai multe despre Yusuf Kebap.
             </p>
+          </motion.div>
 
-            <div className="space-y-6">
-              <div className="flex items-center">
-                <Phone className="h-6 w-6 text-[#F05742] mr-4" />
-                <div>
-                  <h3 className="font-semibold">Telefon</h3>
-                  <a href="tel:+0799619999" className="text-gray-600 underline hover:text-[#F05742] transition duration-200">
-                    +0799619999
-                  </a>
-                </div>
+          <motion.div
+            className="surface-card grid gap-4 p-5 md:p-6"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.15 }}
+          >
+            <div className="soft-card flex items-start gap-4">
+              <Phone className="mt-1 h-5 w-5 text-[var(--clay)]" />
+              <div>
+                <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Telefon
+                </p>
+                <a href="tel:+40799619999" className="mt-2 block text-xl text-[var(--ink)]">
+                  +40 799 619 999
+                </a>
               </div>
-              <div className="flex items-center">
-                <Mail className="h-6 w-6 text-[#F05742] mr-4" />
-                <div>
-                  <h3 className="font-semibold">Email</h3>
-                  <a href="mailto:yowsef@yusuf-farm.ro" className="text-gray-600 underline hover:text-[#F05742] transition duration-200">
-                    yowsef@yusuf-farm.ro
-                  </a>
-                </div>
+            </div>
+            <div className="soft-card flex items-start gap-4">
+              <Mail className="mt-1 h-5 w-5 text-[var(--clay)]" />
+              <div>
+                <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Email
+                </p>
+                <a href="mailto:yowsef@yusuf-farm.ro" className="mt-2 block text-xl text-[var(--ink)]">
+                  yowsef@yusuf-farm.ro
+                </a>
               </div>
-              <div className="flex items-center">
-                <MapPin className="h-6 w-6 text-[#F05742] mr-4" />
-                <div>
-                  <h3 className="font-semibold">Adresă</h3>
-                  <p className="text-gray-600">J8FV+P54, ROMÂNIA 117036</p>
-                </div>
+            </div>
+            <div className="soft-card flex items-start gap-4">
+              <MapPin className="mt-1 h-5 w-5 text-[var(--clay)]" />
+              <div>
+                <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Adresă
+                </p>
+                <p className="mt-2 text-[var(--ink)]">J8FV+P54, Romania 117036</p>
+              </div>
+            </div>
+            <div className="soft-card flex items-start gap-4">
+              <Clock3 className="mt-1 h-5 w-5 text-[var(--clay)]" />
+              <div>
+                <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Potrivit pentru
+                </p>
+                <p className="mt-2 text-[var(--ink)]">
+                  Vizite la fermă, întrebări despre animale, rezervări la restaurant și mesaje generale.
+                </p>
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Formular de Contact */}
+      <section className="section-shell py-8 md:py-12">
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            className="surface-card p-6 md:p-8"
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7 }}
           >
-            <form className="bg-white p-8 rounded-lg shadow-lg border border-[#F05742]">
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+            <span className="eyebrow">Contact direct</span>
+            <h2 className="section-title mt-5 text-[var(--ink)]">
+              Spune-ne cu ce te poate ajuta Yusuf Farm.
+            </h2>
+            <p className="section-lede">
+              Fie că te interesează animalele, o vizită la fermă sau restaurantul,
+              te putem orienta rapid către informațiile potrivite.
+            </p>
+          </motion.div>
+
+          <motion.form
+            onSubmit={handleSubmit}
+            className="surface-card p-6 md:p-8"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
                   Nume
-                </label>
+                </span>
                 <input
                   type="text"
-                  id="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F05742] focus:border-transparent"
+                  name="name"
+                  value={formData.name}
+                  onChange={(event) =>
+                    setFormData((current) => ({
+                      ...current,
+                      name: event.target.value,
+                    }))
+                  }
+                  className="contact-field"
                   placeholder="Numele tău"
                 />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+              </label>
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
                   Email
-                </label>
+                </span>
                 <input
                   type="email"
-                  id="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F05742] focus:border-transparent"
+                  name="email"
+                  value={formData.email}
+                  onChange={(event) =>
+                    setFormData((current) => ({
+                      ...current,
+                      email: event.target.value,
+                    }))
+                  }
+                  className="contact-field"
                   placeholder="Email-ul tău"
                 />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-                  Mesaj
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F05742] focus:border-transparent"
-                  placeholder="Mesajul tău"
-                ></textarea>
-              </div>
-              <motion.button
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Trimite Mesaj
-              </motion.button>
-            </form>
-          </motion.div>
+              </label>
+            </div>
+
+            <label className="mt-5 block">
+              <span className="mb-2 block text-sm font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+                Mesaj
+              </span>
+              <textarea
+                name="message"
+                rows={6}
+                value={formData.message}
+                onChange={(event) =>
+                  setFormData((current) => ({
+                    ...current,
+                    message: event.target.value,
+                  }))
+                }
+                className="contact-field resize-none"
+                placeholder="Spune-ne cu ce te poate ajuta Yusuf Farm."
+              />
+            </label>
+
+            <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <p className="text-sm text-[var(--muted)]">
+                Trimiterea deschide aplicația ta de email cu mesajul completat automat.
+              </p>
+              <button type="submit" className="brand-button">
+                Trimite mesaj
+                <ArrowUpRight className="h-4 w-4" />
+              </button>
+            </div>
+          </motion.form>
         </div>
       </section>
     </div>
   );
 };
 
-export default Contact;
+export default ContactRo;

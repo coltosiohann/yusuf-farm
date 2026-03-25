@@ -1,132 +1,178 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Import Link for internal navigation
-import yusufkebap from "../../images/yusufkebap.png";
-import farm from "../../images/FERMA.jpg";
 import { motion } from "framer-motion";
+import { ArrowRight, ChefHat, ExternalLink, Sprout } from "lucide-react";
+import { Link } from "react-router-dom";
+import farm from "../../images/FERMA.jpg";
+import yusufkebap from "../../images/yusufkebap.png";
 
-const Offerings = () => {
-  const offerings = [
-    {
-      title: "Restaurant De la Fermă la Masă",
-      description:
-        "Experimentați o masă excelentă cu ingrediente provenite direct de la ferma noastră. Meniul nostru sezonier prezintă cele mai bune produse locale pregătite de bucătari experți.",
-      image: yusufkebap,
-      url: "https://yusufkebapdoner.ro/", // External link
-      external: true,
-    },
-    {
-      title: "Fermă Durabilă",
-      description:
-        "Vizitați ferma noastră unde cultivăm legume și fructe organice și creștem animale în libertate. Aflați despre practicile agricole durabile și bucurați-vă de produse proaspete.",
-      image: farm,
-      url: "/animal-trading", // Internal link
-      external: false,
-    },
-    {
-      title: "Magazin și Piață",
-      description:
-        "Cumpărați produse proaspete, produse artizanale și meșteșuguri locale din magazinul nostru. Luați acasă cele mai bune produse ale Fermei Yusuf și sprijiniți artizanii locali.",
-      image:
-        "https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      url: "/story", // Internal link
-      external: false,
-    },
-  ];
+const offerings = [
+  {
+    badge: "Dining",
+    title: "Restaurant de la fermă la masă",
+    description:
+      "Yusuf Kebap duce valorile fermei în farfurie prin gust, ospitalitate și aprovizionare atentă.",
+    image: yusufkebap,
+    url: "https://yusufkebapdoner.ro/",
+    external: true,
+  },
+  {
+    badge: "Domeniu",
+    title: "Fermă sustenabilă",
+    description:
+      "Terenul deschis, grija echilibrată și rutina zilnică a animalelor rămân în centrul Yusuf Farm.",
+    image: farm,
+    url: "/ro/comert-animale",
+    external: false,
+  },
+  {
+    badge: "Poveste",
+    title: "Vizite și povestea fermei",
+    description:
+      "Oaspeții pot afla istoria fermei, pot vedea locul și pot programa vizite sau conversații cu echipa.",
+    image:
+      "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1400&q=80",
+    url: "/ro/povestea-noastra",
+    external: false,
+  },
+];
+
+const OfferingLink = ({
+  external,
+  url,
+}: {
+  external: boolean;
+  url: string;
+}) => {
+  if (external) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="brand-button mt-6 w-fit"
+      >
+        Vezi Yusuf Kebap
+        <ExternalLink className="h-4 w-4" />
+      </a>
+    );
+  }
 
   return (
-    <div className="bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] overflow-hidden">
-        <motion.img
-          src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          alt="Oferte fermă"
-          className="w-full h-full object-cover"
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <motion.h1
-            className="text-5xl font-bold text-white"
-            initial={{ opacity: 0, y: -50 }}
+    <Link to={url} className="brand-button mt-6 w-fit">
+      Află mai multe
+      <ArrowRight className="h-4 w-4" />
+    </Link>
+  );
+};
+
+const OfferingsRo = () => {
+  return (
+    <div className="pb-12 pt-6 md:pt-10">
+      <section className="page-hero">
+        <div className="page-hero-grid">
+          <motion.div
+            className="page-hero-copy"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.75 }}
           >
-            Ce Oferim
-          </motion.h1>
+            <span className="eyebrow">Ce oferă Yusuf Farm</span>
+            <h1 className="section-title text-[var(--ink)] md:text-[clamp(3rem,6vw,5.2rem)]">
+              De la animale la mese, fiecare ofertă începe din fermă.
+            </h1>
+            <p className="max-w-xl text-lg text-[var(--muted)] md:text-xl">
+              Yusuf Farm reunește animale premium, mâncare ghidată de valori halal și
+              experiențe pentru vizitatori care vor să înțeleagă locul din spatele numelui.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="page-hero-figure h-[440px] md:h-[560px]"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.15 }}
+          >
+            <img src={farm} alt="Imagine principală pentru ofertele Yusuf Farm" className="h-full w-full object-cover" />
+          </motion.div>
         </div>
       </section>
 
-      {/* Offerings Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="space-y-16">
+      <section className="section-shell py-8 md:py-12">
+        <div className="space-y-5">
           {offerings.map((offering, index) => (
             <motion.div
-              key={index}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } gap-8 items-center`}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.8, staggerChildren: 0.2 },
-                },
-              }}
+              key={offering.title}
+              className="surface-card grid gap-6 overflow-hidden p-4 md:p-5 lg:grid-cols-[0.95fr_1.05fr]"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: index * 0.08 }}
             >
-              {/* Image Section */}
-              <motion.div
-                className="w-full md:w-1/2"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div className={`media-frame ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                 <img
                   src={offering.image}
                   alt={offering.title}
-                  className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+                  className="h-[320px] w-full object-cover md:h-[360px]"
+                  loading="lazy"
                 />
-              </motion.div>
-
-              {/* Content Section */}
-              <motion.div
-                className="w-full md:w-1/2"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+              </div>
+              <div
+                className={`flex flex-col justify-center p-2 md:p-4 ${
+                  index % 2 === 1 ? "lg:order-1" : ""
+                }`}
               >
-                <h2 className="text-3xl font-bold mb-4 text-[#F05742]">
+                <p className="text-sm font-extrabold uppercase tracking-[0.22em] text-[var(--clay)]">
+                  {offering.badge}
+                </p>
+                <h2 className="mt-4 text-[clamp(2rem,4vw,3.4rem)] leading-[1.02] text-[var(--ink)]">
                   {offering.title}
                 </h2>
-                <p className="text-gray-700 text-lg">{offering.description}</p>
-
-                {/* Conditional Rendering for External vs Internal Links */}
-                {offering.external ? (
-                  <a
-                    href={offering.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
-                  >
-                    Află Mai Multe
-                  </a>
-                ) : (
-                  <Link
-                    to={offering.url}
-                    className="inline-block mt-6 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity duration-200"
-                  >
-                    Află Mai Multe
-                  </Link>
-                )}
-              </motion.div>
+                <p className="mt-4 max-w-xl text-[var(--muted)]">{offering.description}</p>
+                <OfferingLink external={offering.external} url={offering.url} />
+              </div>
             </motion.div>
           ))}
         </div>
+      </section>
+
+      <section className="section-shell py-8 md:py-12">
+        <motion.div
+          className="surface-card grid gap-4 p-6 md:grid-cols-3 md:p-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.75 }}
+        >
+          <div className="soft-card h-full">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(36,50,38,0.08)] text-[var(--olive)]">
+              <ChefHat className="h-5 w-5" />
+            </div>
+            <h3 className="mt-5 text-2xl text-[var(--ink)]">Dining pornit de aici</h3>
+            <p className="mt-3 text-[var(--muted)]">
+              Mesele de la Yusuf Kebap poartă aceeași grijă pentru origine și ospitalitate ca ferma.
+            </p>
+          </div>
+          <div className="soft-card h-full">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(36,50,38,0.08)] text-[var(--olive)]">
+              <Sprout className="h-5 w-5" />
+            </div>
+            <h3 className="mt-5 text-2xl text-[var(--ink)]">Teren și rutină</h3>
+            <p className="mt-3 text-[var(--muted)]">
+              Animalele, terenul și rutina zilnică lucrează împreună pentru calitatea fermei.
+            </p>
+          </div>
+          <div className="soft-card h-full">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(36,50,38,0.08)] text-[var(--olive)]">
+              <ArrowRight className="h-5 w-5" />
+            </div>
+            <h3 className="mt-5 text-2xl text-[var(--ink)]">Vizite pe domeniu</h3>
+            <p className="mt-3 text-[var(--muted)]">
+              Vizitatorii pot veni pentru animale, dining sau pentru a vedea mai de aproape domeniul.
+            </p>
+          </div>
+        </motion.div>
       </section>
     </div>
   );
 };
 
-export default Offerings;
+export default OfferingsRo;

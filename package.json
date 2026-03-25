@@ -5,10 +5,11 @@
   "type": "module",
   "homepage": "./",
   "scripts": {
-    "start": "command to run the project",
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "typecheck": "tsc -b",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"

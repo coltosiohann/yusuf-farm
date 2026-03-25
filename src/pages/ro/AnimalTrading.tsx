@@ -1,140 +1,152 @@
-import React from "react";
-import bull from "../../images/bull.jpg";
-import sheep from "../../images/sheep.jpg";
-import halal from "../../images/halal.jpg";
 import { motion } from "framer-motion";
+import { ArrowRight, BadgeCheck, ShieldCheck, Wheat } from "lucide-react";
+import { Link } from "react-router-dom";
+import bull from "../../images/bull.jpg";
+import halal from "../../images/halal.jpg";
+import sheep from "../../images/sheep.jpg";
+
+const animals = [
+  {
+    title: "Comerț cu tauri",
+    description:
+      "Tauri premium selectați pentru rezultate genetice mai bune, calitate superioară a efectivului și mai multă încredere pentru cumpărător.",
+    image: bull,
+  },
+  {
+    title: "Comerț cu oi",
+    description:
+      "Oi alese pentru bunăstare, calitate de rasă și consecvența așteptată de la un partener serios de comerț.",
+    image: sheep,
+  },
+  {
+    title: "Standarde halal",
+    description:
+      "Principiile halal întăresc ideea de curățenie, tratament etic și încredere în jurul întregii oferte.",
+    image: halal,
+  },
+];
+
+const standards = [
+  {
+    icon: BadgeCheck,
+    title: "Verificări de sănătate și calitate",
+    description:
+      "Fiecare animal este evaluat cu grijă înainte ca orice discuție comercială să meargă mai departe.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Manipulare etică",
+    description:
+      "Bunăstarea, mișcarea calmă și rutina responsabilă a fermei rămân esențiale în activitate.",
+  },
+  {
+    icon: Wheat,
+    title: "Creștere echilibrată",
+    description:
+      "Pășunea bună, hrănirea consecventă și managementul răbdător susțin rezultatul final.",
+  },
+];
 
 const AnimalTradingRo = () => {
-  const animals = [
-    {
-      title: "Comerț cu Tauri",
-      description:
-        "Comerțul cu tauri premium asigură accesul la genetică de top, îmbunătățind calitatea efectivului și productivitatea fermelor de carne și lactate.",
-      image: bull,
-    },
-    {
-      title: "Comerț cu Oi",
-      description:
-        "Comerțul cu oi premium oferă genetică superioară pentru lână de calitate excepțională, producție de carne și practici de creștere sustenabile.",
-      image: sheep,
-    },
-    {
-      title: "Certificat Halal",
-      description:
-        "Halal se referă la alimente și practici care respectă legile dietetice islamice, punând accent pe curățenie, surse etice și tratament uman.",
-      image: halal,
-    },
-  ];
-
   return (
-    <div className="bg-gray-50">
-      {/* Secțiunea Hero */}
-      <section className="relative h-[400px] overflow-hidden">
-        <motion.img
-          src="https://images.unsplash.com/photo-1554747706-2e474e1ae0c6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Comerț cu Animale"
-          className="w-full h-full object-cover"
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <motion.h1
-            className="text-5xl font-bold text-white"
-            initial={{ opacity: 0, y: -50 }}
+    <div className="pb-12 pt-6 md:pt-10">
+      <section className="page-hero">
+        <div className="page-hero-grid">
+          <motion.div
+            className="page-hero-copy"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.75 }}
           >
-            Comerț cu Animale
-          </motion.h1>
+            <span className="eyebrow">Animale premium</span>
+            <h1 className="section-title text-[var(--ink)] md:text-[clamp(3rem,6vw,5.2rem)]">
+              Comerț cu animale bazat pe sănătate, grijă și încredere.
+            </h1>
+            <p className="max-w-xl text-lg text-[var(--muted)] md:text-xl">
+              Yusuf Farm lucrează cu cumpărători care caută animale bune de reproducție,
+              rutină constantă și creștere făcută cu spațiu, răbdare și grijă responsabilă.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/ro/contact" className="brand-button">
+                Cere detalii
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/ro/galerie" className="ghost-button">
+                Vezi galeria
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="page-hero-figure h-[440px] md:h-[560px]"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.15 }}
+          >
+            <img src={bull} alt="Taur premium la Yusuf Farm" className="h-full w-full object-cover" />
+          </motion.div>
         </div>
       </section>
 
-      {/* Secțiunea de Introducere */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-3xl font-bold mb-4 text-[#B20202]">
-            Comerț Premium cu Animale
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            La Ferma Yusuf, ne specializăm în comerțul etic cu animale premium, 
-            conectând crescătorii cu animale de calitate și asigurând cele mai înalte 
-            standarde de bunăstare a animalelor și excelență în creștere.
-          </p>
-        </motion.div>
-
-        {/* Secțiunea Carduri */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.2 },
-            },
-          }}
-        >
+      <section className="section-shell py-8 md:py-12">
+        <div className="grid gap-4 md:grid-cols-3">
           {animals.map((animal, index) => (
             <motion.div
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden border border-[#F05742] transform hover:scale-105 transition-all duration-300"
-              whileHover={{ y: -10 }}
+              key={animal.title}
+              className="overflow-hidden rounded-[28px] border border-[rgba(71,56,42,0.1)] bg-white/72 shadow-[0_18px_44px_rgba(57,42,28,0.1)]"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.65, delay: index * 0.1 }}
             >
-              <div className="h-64 overflow-hidden">
-                <img
-                  src={animal.image}
-                  alt={animal.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <img
+                src={animal.image}
+                alt={animal.title}
+                className="h-64 w-full object-cover"
+                loading="lazy"
+              />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-[#F05742]">
-                  {animal.title}
-                </h3>
-                <p className="text-gray-600">{animal.description}</p>
+                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[var(--clay)]">
+                  Yusuf Farm
+                </p>
+                <h2 className="mt-3 text-3xl text-[var(--ink)]">{animal.title}</h2>
+                <p className="mt-3 text-[var(--muted)]">{animal.description}</p>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Secțiunea Standardele Comerțului */}
+      <section className="section-shell py-8 md:py-12">
         <motion.div
-          className="bg-[#F05742] text-white rounded-lg p-8 md:p-12"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="surface-card p-6 md:p-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.75 }}
         >
-          <h3 className="text-2xl font-bold mb-4">Standardele Noastre de Comerț</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-xl font-semibold mb-2">Asigurarea Calității</h4>
-              <p className="text-white">
-                Fiecare animal din programul nostru de comerț trece prin verificări 
-                complete de sănătate și verificare genetică pentru a asigura cele mai 
-                înalte standarde de calitate.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-2">Practici Etice</h4>
-              <p className="text-white">
-                Prioritizăm bunăstarea animalelor și practicile durabile de creștere 
-                în toate operațiunile noastre comerciale.
-              </p>
-            </div>
+          <span className="eyebrow">Standarde de comerț</span>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {standards.map((standard, index) => {
+              const Icon = standard.icon;
+
+              return (
+                <motion.div
+                  key={standard.title}
+                  className="soft-card h-full"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.65, delay: index * 0.08 }}
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(36,50,38,0.08)] text-[var(--olive)]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-5 text-2xl text-[var(--ink)]">{standard.title}</h3>
+                  <p className="mt-3 text-[var(--muted)]">{standard.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>

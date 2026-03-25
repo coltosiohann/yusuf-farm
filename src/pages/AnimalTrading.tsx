@@ -1,140 +1,152 @@
-import React from "react";
-import bull from "../images/bull.jpg";
-import sheep from "../images/sheep.jpg";
-import halal from "../images/halal.jpg";
 import { motion } from "framer-motion";
+import { ArrowRight, BadgeCheck, ShieldCheck, Wheat } from "lucide-react";
+import { Link } from "react-router-dom";
+import bull from "../images/bull.jpg";
+import halal from "../images/halal.jpg";
+import sheep from "../images/sheep.jpg";
+
+const animals = [
+  {
+    title: "Bull trading",
+    description:
+      "Premium bulls selected to support stronger breeding outcomes, herd quality, and buyer confidence.",
+    image: bull,
+  },
+  {
+    title: "Sheep trading",
+    description:
+      "Sheep chosen for welfare, breed quality, and the consistency expected from a more serious livestock partner.",
+    image: sheep,
+  },
+  {
+    title: "Halal standards",
+    description:
+      "Halal-led principles reinforce cleanliness, ethical treatment, and a clearer sense of trust across the offering.",
+    image: halal,
+  },
+];
+
+const standards = [
+  {
+    icon: BadgeCheck,
+    title: "Health and quality checks",
+    description:
+      "Each animal is reviewed with care before any trade conversation moves forward.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Ethical handling",
+    description:
+      "Welfare, calm movement, and responsible farm routines remain central to the operation.",
+  },
+  {
+    icon: Wheat,
+    title: "Balanced raising",
+    description:
+      "Good pasture, consistent feeding, and patient day-to-day management support the final result.",
+  },
+];
 
 const AnimalTrading = () => {
-  const animals = [
-    {
-      title: "Bull Trading",
-      description:
-        "Trading premium bulls ensures access to top-tier genetics, enhancing herd quality and productivity for beef and dairy farming operations.",
-      image: bull,
-    },
-    {
-      title: "Sheep Trading",
-      description:
-        "Trading premium sheep provides superior genetics for exceptional wool quality, meat production, and sustainable breeding practices.",
-      image: sheep,
-    },
-    {
-      title: "Halal Certificate",
-      description:
-        "Halal refers to food and practices that comply with Islamic dietary laws, emphasizing cleanliness, ethical sourcing, and humane treatment.",
-      image: halal,
-    },
-  ];
-
   return (
-    <div className="bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] overflow-hidden">
-        <motion.img
-          src="https://images.unsplash.com/photo-1554747706-2e474e1ae0c6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Animal Trading"
-          className="w-full h-full object-cover"
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <motion.h1
-            className="text-5xl font-bold text-white"
-            initial={{ opacity: 0, y: -50 }}
+    <div className="pb-12 pt-6 md:pt-10">
+      <section className="page-hero">
+        <div className="page-hero-grid">
+          <motion.div
+            className="page-hero-copy"
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.75 }}
           >
-            Animal Trading
-          </motion.h1>
+            <span className="eyebrow">Premium livestock</span>
+            <h1 className="section-title text-[var(--ink)] md:text-[clamp(3rem,6vw,5.2rem)]">
+              Animal trading built on health, calm handling, and trust.
+            </h1>
+            <p className="max-w-xl text-lg text-[var(--muted)] md:text-xl">
+              Yusuf Farm works with buyers who value strong breeding stock, steady
+              routines, and animals raised with room, patience, and responsible care.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/contact" className="brand-button">
+                Request details
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/gallery" className="ghost-button">
+                View the gallery
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="page-hero-figure h-[440px] md:h-[560px]"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.15 }}
+          >
+            <img src={bull} alt="Premium bull at Yusuf Farm" className="h-full w-full object-cover" />
+          </motion.div>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-3xl font-bold mb-4 text-[#B20202]">
-            Premium Livestock Trading
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            At Yusuf Farm, we specialize in the ethical trading of premium
-            livestock, connecting breeders with quality animals while ensuring
-            the highest standards of animal welfare and breeding excellence.
-          </p>
-        </motion.div>
-
-        {/* Cards Section */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.2 },
-            },
-          }}
-        >
+      <section className="section-shell py-8 md:py-12">
+        <div className="grid gap-4 md:grid-cols-3">
           {animals.map((animal, index) => (
             <motion.div
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden border border-[#F05742] transform hover:scale-105 transition-all duration-300"
-              whileHover={{ y: -10 }}
+              key={animal.title}
+              className="overflow-hidden rounded-[28px] border border-[rgba(71,56,42,0.1)] bg-white/72 shadow-[0_18px_44px_rgba(57,42,28,0.1)]"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.65, delay: index * 0.1 }}
             >
-              <div className="h-64 overflow-hidden">
-                <img
-                  src={animal.image}
-                  alt={animal.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <img
+                src={animal.image}
+                alt={animal.title}
+                className="h-64 w-full object-cover"
+                loading="lazy"
+              />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-[#F05742]">
-                  {animal.title}
-                </h3>
-                <p className="text-gray-600">{animal.description}</p>
+                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[var(--clay)]">
+                  Yusuf Farm
+                </p>
+                <h2 className="mt-3 text-3xl text-[var(--ink)]">{animal.title}</h2>
+                <p className="mt-3 text-[var(--muted)]">{animal.description}</p>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Trading Standards Section */}
+      <section className="section-shell py-8 md:py-12">
         <motion.div
-          className="bg-[#F05742] text-white rounded-lg p-8 md:p-12"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="surface-card p-6 md:p-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.75 }}
         >
-          <h3 className="text-2xl font-bold mb-4">Our Trading Standards</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-xl font-semibold mb-2">Quality Assurance</h4>
-              <p className="text-white">
-                Every animal in our trading program undergoes thorough health
-                checks and genetic verification to ensure the highest quality
-                standards.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-2">Ethical Practices</h4>
-              <p className="text-white">
-                We prioritize animal welfare and sustainable breeding practices
-                in all our trading operations.
-              </p>
-            </div>
+          <span className="eyebrow">Trading standards</span>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {standards.map((standard, index) => {
+              const Icon = standard.icon;
+
+              return (
+                <motion.div
+                  key={standard.title}
+                  className="soft-card h-full"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.65, delay: index * 0.08 }}
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(36,50,38,0.08)] text-[var(--olive)]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-5 text-2xl text-[var(--ink)]">{standard.title}</h3>
+                  <p className="mt-3 text-[var(--muted)]">{standard.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>

@@ -1,135 +1,189 @@
-import React from "react";
-import story1 from "../../images/story1.jpg"; // Importing the first image
-import story2 from "../../images/taur_story.jpg"; // Importing the second image
 import { motion } from "framer-motion";
+import { ArrowRight, Leaf, Quote, ShieldCheck, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import story1 from "../../images/story1.jpg";
+import story2 from "../../images/taur_story.jpg";
+
+const milestones = [
+  {
+    year: "1920",
+    title: "Un început bine înrădăcinat",
+    description:
+      "Yusuf Farm a pornit dintr-un respect practic pentru pământ, animale și oamenii care depind de ambele.",
+  },
+  {
+    year: "Astăzi",
+    title: "Grija dusă mai departe",
+    description:
+      "Rutina zilnică, pășunea deschisă și grija familiei continuă să modeleze felul în care lucrează ferma.",
+  },
+  {
+    year: "Mâine",
+    title: "Creștere cu disciplină",
+    description:
+      "Următorul capitol înseamnă creștere responsabilă, comerț cinstit și ospitalitate pentru fiecare vizitator.",
+  },
+];
+
+const values = [
+  {
+    icon: Leaf,
+    title: "Sustenabilitate",
+    description:
+      "Practicile agricole responsabile și deciziile luate pe termen lung modelează felul în care domeniul crește și se prezintă.",
+  },
+  {
+    icon: Users,
+    title: "Comunitate",
+    description:
+      "Ferma se construiește prin relații: cu cumpărătorii, cu vizitatorii și cu oamenii care duc munca mai departe.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Integritate",
+    description:
+      "Standardele de grijă, principiile halal și comunicarea transparentă susțin încrederea în jurul fermei.",
+  },
+];
 
 const StoryRo = () => {
   return (
-    <div className="bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] overflow-hidden">
-        <motion.img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          alt="Peisaj fermă"
-          className="w-full h-full object-cover"
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <motion.h1
-            className="text-5xl font-bold text-white"
-            initial={{ opacity: 0, y: -50 }}
+    <div className="pb-12 pt-6 md:pt-10">
+      <section className="page-hero">
+        <div className="page-hero-grid">
+          <motion.div
+            className="page-hero-copy"
+            initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.75 }}
           >
-            Povestea Noastră
-          </motion.h1>
+            <span className="eyebrow">Din 1920</span>
+            <h1 className="section-title text-[var(--ink)] md:text-[clamp(3rem,6vw,5.3rem)]">
+              Povestea noastră începe cu pământul, animalele și munca răbdătoare.
+            </h1>
+            <p className="max-w-xl text-lg text-[var(--muted)] md:text-xl">
+              Yusuf Farm s-a construit prin grijă zilnică, pășune deschisă și respect
+              pentru oamenii care cresc, comercializează și pregătesc hrană din acest loc.
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="stat-chip">
+                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[var(--muted)]">
+                  Moștenire
+                </p>
+                <p className="mt-2 text-[var(--ink)]">
+                  Construită pe continuitate, grijă față de animale și un simț puternic al locului.
+                </p>
+              </div>
+              <div className="stat-chip">
+                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[var(--muted)]">
+                  Practică
+                </p>
+                <p className="mt-2 text-[var(--ink)]">
+                  Rutina zilnică, îngrijirea constantă și terenul deschis definesc și astăzi ferma.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.15 }}
+          >
+            <div className="page-hero-figure h-[480px] md:h-[560px]">
+              <img src={story1} alt="Cadru istoric Yusuf Farm" className="h-full w-full object-cover" />
+            </div>
+            <div className="absolute bottom-5 right-5 hidden w-44 overflow-hidden rounded-[24px] border border-white/50 bg-white/80 shadow-[0_18px_45px_rgba(57,42,28,0.18)] md:block">
+              <img src={story2} alt="Cadru actual Yusuf Farm" className="h-28 w-full object-cover" />
+              <div className="p-4">
+                <p className="text-sm font-semibold text-[var(--ink)]">Trecut și prezent</p>
+                <p className="mt-1 text-xs text-[var(--muted)]">
+                  Aceleași valori continuă prin munca de astăzi.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left Text Content */}
+      <section className="section-shell py-8 md:py-12">
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            className="surface-card p-6 md:p-8"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl font-bold mb-6 text-[#B20202]">
-              O Moștenire a Excelenței
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(36,50,38,0.08)] text-[var(--olive)]">
+              <Quote className="h-5 w-5" />
+            </div>
+            <h2 className="section-title mt-5 text-[var(--ink)]">
+              O fermă construită pe răbdare, continuitate și muncă.
             </h2>
-            <p className="text-gray-700 mb-4">
-              Ferma Yusuf, înființată în 1920, nu este doar o fermă, ci un
-              testament viu al unei moșteniri care se întinde pe sute de ani.
-              Așezată într-un peisaj rural liniștit, această fermă remarcabilă
-              este construită pe tradiții de agricultură sustenabilă și creșterea
-              etică a animalelor, transmise din generație în generație.
+            <p className="section-lede">
+              Yusuf Farm a crescut prin cunoaștere practică, îngrijire atentă a animalelor
+              și un loc în care vizitatorii pot simți și astăzi ritmul real al fermei.
             </p>
-            <p className="text-gray-700 mb-4">
-              La baza Fermei Yusuf se află comerțul său prosper cu animale,
-              specializat în creșterea și comercializarea taurilor, oilor și altor
-              animale. Fiecare animal este crescut cu cea mai mare grijă, având
-              acces la pășuni întinse și o dietă echilibrată.
-            </p>
-            <p className="text-gray-700">
-              Vizitatorii fermei Yusuf sunt adesea captivați de frumusețea sa
-              liniștită, unde colinele ondulate se întâlnesc cu cerul deschis.
-              Este un loc unde poți observa grija meticuloasă oferită fiecărui
-              aspect al agriculturii, inspirându-i pe toți să se reconecteze cu
-              natura.
-            </p>
+            <Link to="/ro/contact" className="brand-button mt-8">
+              Vizitează ferma
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </motion.div>
 
-          {/* Right Image Content */}
-          <motion.div
-            className="grid grid-cols-2 gap-6"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <img
-              src={story1}
-              alt="Ferma istorică"
-              className="rounded-lg shadow-lg"
-            />
-            <img
-              src={story2}
-              alt="Ferma modernă"
-              className="rounded-lg shadow-lg mt-8"
-            />
-          </motion.div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {milestones.map((milestone, index) => (
+              <motion.div
+                key={milestone.title}
+                className="soft-card h-full"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.65, delay: index * 0.1 }}
+              >
+                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[var(--clay)]">
+                  {milestone.year}
+                </p>
+                <h3 className="mt-4 text-2xl text-[var(--ink)]">{milestone.title}</h3>
+                <p className="mt-3 text-[var(--muted)]">{milestone.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 bg-white">
+      <section className="section-shell py-8 md:py-12">
         <motion.div
-          className="max-w-7xl mx-auto px-6 lg:px-12 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          className="surface-card p-6 md:p-8"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.75 }}
         >
-          <h2 className="text-4xl font-bold mb-12 text-[#B20202]">
-            Valorile Noastre
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Value Card 1 */}
-            <motion.div
-              className="text-center p-8 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-              whileHover={{ y: -10 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">Sustenabilitate</h3>
-              <p>
-                Implementăm practici agricole ecologice și soluții de energie
-                regenerabilă pentru a minimiza impactul asupra mediului.
-              </p>
-            </motion.div>
+          <span className="eyebrow">Valori de bază</span>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {values.map((value, index) => {
+              const Icon = value.icon;
 
-            {/* Value Card 2 */}
-            <motion.div
-              className="text-center p-8 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-              whileHover={{ y: -10 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">Comunitate</h3>
-              <p>
-                Credem în sprijinirea comunităților locale prin locuri de muncă,
-                educație și producție alimentară durabilă.
-              </p>
-            </motion.div>
-
-            {/* Value Card 3 */}
-            <motion.div
-              className="text-center p-8 bg-gradient-to-r from-[#F05742] to-[#B20202] text-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-              whileHover={{ y: -10 }}
-            >
-              <h3 className="text-xl font-semibold mb-4">Inovație</h3>
-              <p>
-                Explorăm continuu noi tehnici și tehnologii agricole pentru a ne
-                îmbunătăți operațiunile și produsele.
-              </p>
-            </motion.div>
+              return (
+                <motion.div
+                  key={value.title}
+                  className="soft-card h-full"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.65, delay: index * 0.08 }}
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(174,94,52,0.08)] text-[var(--clay)]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-5 text-2xl text-[var(--ink)]">{value.title}</h3>
+                  <p className="mt-3 text-[var(--muted)]">{value.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
