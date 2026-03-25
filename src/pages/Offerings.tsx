@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChefHat, ExternalLink, Sprout } from "lucide-react";
 import { Link } from "react-router-dom";
 import farm from "../images/FERMA.jpg";
-import yusufkebap from "../images/yusufkebap.png";
+import yusufkebap from "../images/optimized/yusufkebap.webp";
 
 const offerings = [
   {

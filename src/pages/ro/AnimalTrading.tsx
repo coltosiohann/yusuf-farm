@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, ShieldCheck, Wheat } from "lucide-react";
 import { Link } from "react-router-dom";
-import bull from "../../images/bull.jpg";
+import bull from "../../images/Bullw.webp";
 import halal from "../../images/halal.jpg";
-import sheep from "../../images/sheep.jpg";
+import sheep from "../../images/sheepw.webp";
 
 const animals = [
   {

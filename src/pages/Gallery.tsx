@@ -2,19 +2,30 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import glr1 from "../images/glr1.jpg";
-import glr10 from "../images/glr10.jpg";
-import glr2 from "../images/glr2.jpg";
-import glr3 from "../images/glr3.jpg";
-import glr4 from "../images/glr4.jpg";
-import glr5 from "../images/glr5.jpg";
-import glr6 from "../images/glr6.jpg";
-import glr7 from "../images/glr7.jpg";
-import glr8 from "../images/glr8.jpg";
-import glr9 from "../images/glr9.jpg";
+import glr1Large from "../images/optimized/glr1-large.webp";
+import glr1Thumb from "../images/optimized/glr1-thumb.webp";
+import glr10Large from "../images/optimized/glr10-large.webp";
+import glr10Thumb from "../images/optimized/glr10-thumb.webp";
+import glr2Large from "../images/optimized/glr2-large.webp";
+import glr2Thumb from "../images/optimized/glr2-thumb.webp";
+import glr3Large from "../images/optimized/glr3-large.webp";
+import glr3Thumb from "../images/optimized/glr3-thumb.webp";
+import glr4Large from "../images/optimized/glr4-large.webp";
+import glr4Thumb from "../images/optimized/glr4-thumb.webp";
+import glr5Large from "../images/optimized/glr5-large.webp";
+import glr5Thumb from "../images/optimized/glr5-thumb.webp";
+import glr6Large from "../images/optimized/glr6-large.webp";
+import glr6Thumb from "../images/optimized/glr6-thumb.webp";
+import glr7Large from "../images/optimized/glr7-large.webp";
+import glr7Thumb from "../images/optimized/glr7-thumb.webp";
+import glr8Large from "../images/optimized/glr8-large.webp";
+import glr8Thumb from "../images/optimized/glr8-thumb.webp";
+import glr9Large from "../images/optimized/glr9-large.webp";
+import glr9Thumb from "../images/optimized/glr9-thumb.webp";
 
 type GalleryItem = {
-  url: string;
+  fullUrl: string;
+  thumbnailUrl: string;
   title: string;
   category: string;
   note: string;
@@ -23,70 +34,80 @@ type GalleryItem = {
 
 const images: GalleryItem[] = [
   {
-    url: glr1,
+    fullUrl: glr1Large,
+    thumbnailUrl: glr1Thumb,
     title: "Estate landscape",
     category: "Setting",
     note: "Wide views that establish the rural atmosphere around the farm.",
     layout: "md:col-span-2 md:row-span-2",
   },
   {
-    url: glr2,
+    fullUrl: glr2Large,
+    thumbnailUrl: glr2Thumb,
     title: "Grazing cattle",
     category: "Livestock",
     note: "Cattle grazing across open ground at Yusuf Farm.",
     layout: "md:col-span-1",
   },
   {
-    url: glr3,
+    fullUrl: glr3Large,
+    thumbnailUrl: glr3Thumb,
     title: "Premium cattle",
     category: "Livestock",
     note: "A closer look at breeding stock selected for strength and consistency.",
     layout: "md:col-span-1",
   },
   {
-    url: glr4,
+    fullUrl: glr4Large,
+    thumbnailUrl: glr4Thumb,
     title: "Farm to table",
     category: "Dining",
     note: "Meals and ingredients connected to the values of the farm.",
     layout: "md:col-span-1",
   },
   {
-    url: glr5,
+    fullUrl: glr5Large,
+    thumbnailUrl: glr5Thumb,
     title: "Farm market",
     category: "Experience",
     note: "Fresh products, local feel, and everyday hospitality.",
     layout: "md:col-span-1 md:row-span-2",
   },
   {
-    url: glr6,
+    fullUrl: glr6Large,
+    thumbnailUrl: glr6Thumb,
     title: "Heritage sheep",
     category: "Livestock",
     note: "Sheep raised with room, routine, and steady care.",
     layout: "md:col-span-1",
   },
   {
-    url: glr7,
+    fullUrl: glr7Large,
+    thumbnailUrl: glr7Thumb,
     title: "Farm activity",
     category: "Motion",
     note: "Movement, work, and daily life across the estate.",
     layout: "md:col-span-1",
   },
   {
-    url: glr8,
+    fullUrl: glr8Large,
+    thumbnailUrl: glr8Thumb,
     title: "Fresh produce",
     category: "Produce",
     note: "Produce that adds freshness and variety to the farm's offer.",
     layout: "md:col-span-1",
   },
   {
-    url: glr9,
+    fullUrl: glr9Large,
+    thumbnailUrl: glr9Thumb,
     title: "Daily farm life",
     category: "Atmosphere",
     note: "Quiet scenes from the daily rhythm of Yusuf Farm.",
     layout: "md:col-span-2",
   },
   {
-    url: glr10,
+    fullUrl: glr10Large,
+    thumbnailUrl: glr10Thumb,
     title: "Sunset over the farm",
     category: "Atmosphere",
     note: "Evenings that show the calm setting around the farm.",
@@ -127,7 +148,13 @@ const Gallery = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.15 }}
           >
-            <img src={glr1} alt="Yusuf Farm gallery hero" className="h-full w-full object-cover" />
+            <img
+              src={glr1Large}
+              alt="Yusuf Farm gallery hero"
+              className="h-full w-full object-cover"
+              fetchPriority="high"
+              decoding="async"
+            />
           </motion.div>
         </div>
       </section>
@@ -147,10 +174,11 @@ const Gallery = () => {
               transition={{ duration: 0.55, delay: index * 0.04 }}
             >
               <img
-                src={image.url}
+                src={image.thumbnailUrl}
                 alt={image.title}
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 loading="lazy"
+                decoding="async"
               />
             </motion.button>
           ))}
@@ -183,9 +211,10 @@ const Gallery = () => {
                 <X className="h-5 w-5" />
               </button>
               <img
-                src={selectedImage.url}
+                src={selectedImage.fullUrl}
                 alt={selectedImage.title}
                 className="max-h-[72vh] w-full rounded-[24px] object-cover"
+                decoding="async"
               />
               <div className="p-4 md:p-5">
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-[var(--clay)]">

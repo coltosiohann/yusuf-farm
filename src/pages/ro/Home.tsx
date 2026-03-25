@@ -8,10 +8,10 @@ import {
   Wheat,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import bull from "../../images/bull.jpg";
+import bull from "../../images/Bullw.webp";
 import farm from "../../images/FERMA.jpg";
-import kebap from "../../images/yusufkebap.png";
-import sheep from "../../images/sheep.jpg";
+import kebap from "../../images/optimized/yusufkebap.webp";
+import sheep from "../../images/sheepw.webp";
 
 const pillars = [
   {
